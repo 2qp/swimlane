@@ -17,8 +17,8 @@ const Icon: IconType = ({ id, alt, ...rest }) => {
     <Image
       src={`/icons/${id}.svg`}
       alt={alt}
-      width="64"
-      height="64"
+      width="20"
+      height="20"
       {...rest}
     />
   );
