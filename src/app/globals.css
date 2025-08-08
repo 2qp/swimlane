@@ -120,3 +120,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+@theme {
+  --text-custom-regular: clamp(0.5rem, 0.4697rem + 0.1294vw, 0.625rem);
+  --text-custom-medium: clamp(0.75rem, 0.7197rem + 0.1294vw, 0.875rem);
+  --text-custom-small: clamp(0.5rem, 0.5rem + 0vw, 0.5rem);
+
+  --color-neutral-4: #777e90;
+  --color-neautral-3: #353945;
+  --color-primary: #3772ff;
+  --color-orange: #ff5c00;
+}
