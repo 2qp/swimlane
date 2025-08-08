@@ -3,30 +3,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 import type { JSX } from "react";
 
-type AvatarStyles = {
-  header: {
-    avatar: string;
-    img: string;
-  };
-
-  task: {
-    avatar: string;
-    img: string;
-  };
-
-  general: {
-    avatar: string;
-    img: string;
-  };
-};
-
-type CustomAvatarProps = {
-  src: string;
-  type: keyof AvatarStyles;
-};
-
-type CustomAvatarType = (props: CustomAvatarProps) => JSX.Element;
-
 const avatarStyles = {
   header: {
     avatar: "size-[30px]",
@@ -42,7 +18,19 @@ const avatarStyles = {
     avatar: "",
     img: "",
   },
+
+  switcher: {
+    avatar: "size-[44px]",
+    img: "size-[13.33px]",
+  },
+} as const;
+
+type CustomAvatarProps = {
+  src: string;
+  type: keyof typeof avatarStyles;
 };
+
+type CustomAvatarType = (props: CustomAvatarProps) => JSX.Element;
 
 const CustomAvatar: CustomAvatarType = ({ src, type }) => {
   //
