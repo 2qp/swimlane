@@ -1,215 +1,151 @@
-import * as React from "react"
-import { ChevronRight } from "lucide-react"
+"use client";
 
-import { SearchForm } from "@/components/search-form"
-import { VersionSwitcher } from "@/components/version-switcher"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
+  SidebarFooter,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import { VersionSwitcher } from "@/components/version-switcher";
+import { LogOutButton } from "@/features/auth/components/logout-button";
+import { usePathname } from "next/navigation";
+import * as React from "react";
+import { SidebarCollapsible } from "./organisms/sidebar-collapsible";
+
+import type { SidebarItem } from "./organisms/sidebar-collapsible";
+
+type AppSideBar = {
+  versions: string[];
+  navMain: SidebarItem[];
+};
 
 // This is sample data.
-const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
+const data: AppSideBar = {
+  versions: ["Root folder", "Sample ws"],
   navMain: [
     {
-      title: "Getting Started",
-      url: "#",
+      title: "Dashboard",
+      uid: "01",
+      items: [],
+      url: "/dashboard",
+      type: "default",
+      icon: "grid",
+    },
+
+    {
+      title: "Boards",
+      uid: "02",
+      enabled: false,
+      url: "/board",
+      icon: "folder",
       items: [
         {
-          title: "Installation",
-          url: "#",
+          title: "Create routes",
+          uid: "child-01",
+          url: "/create-routes",
+          enabled: false,
         },
         {
-          title: "Project Structure",
-          url: "#",
+          title: "Delepment React Apps",
+          uid: "child-02",
+          url: "/react-apps",
         },
+        { title: "Sport Xi Project", uid: "child-03", url: "/xi-project" },
+        { title: "Wordpress theme", uid: "child-04", url: "/wp-theme" },
       ],
+      type: "expandable",
+    },
+
+    {
+      title: "Messages",
+      uid: "03",
+      items: [],
+      url: "/messages",
+      type: "default",
+      icon: "remark",
     },
     {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
+      title: "Calendar",
+      uid: "04",
+      items: [],
+      url: "/calendar",
+      type: "default",
+      icon: "calendar",
     },
     {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
-        },
-      ],
+      title: "Team members",
+      uid: "05",
+      items: [],
+      url: "/team",
+      type: "default",
+      icon: "team",
     },
   ],
-}
+};
+
+const FOOTER_DATA: SidebarItem[] = [
+  {
+    title: "Support",
+    uid: "03",
+    items: [],
+    url: "/support",
+    type: "default",
+    icon: "info",
+  },
+  // {
+  //   title: "Calendar",
+  //   uid: "04",
+  //   items: [],
+  //   url: "/calendar",
+  //   type: "default",
+  //   icon: "calendar",
+  // },
+];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  //
+
+  const pathName = usePathname();
+
   return (
     <Sidebar {...props}>
-      <SidebarHeader>
-        <VersionSwitcher
-          versions={data.versions}
-          defaultVersion={data.versions[0]}
-        />
-        <SearchForm />
+      <SidebarHeader className="">
+        <div className="max-w-[240px] mx-auto w-full">
+          <VersionSwitcher
+            versions={data.versions}
+            defaultVersion={data.versions[0]}
+          />
+        </div>
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        {/* We create a collapsible SidebarGroup for each parent. */}
-        {data.navMain.map((item) => (
-          <Collapsible
-            key={item.title}
-            title={item.title}
-            defaultOpen
-            className="group/collapsible"
-          >
-            <SidebarGroup>
-              <SidebarGroupLabel
-                asChild
-                className="group/label text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground text-sm"
-              >
-                <CollapsibleTrigger>
-                  {item.title}{" "}
-                  <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
-                </CollapsibleTrigger>
-              </SidebarGroupLabel>
-              <CollapsibleContent>
-                <SidebarGroupContent>
-                  <SidebarMenu>
-                    {item.items.map((item) => (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild isActive={item.isActive}>
-                          <a href={item.url}>{item.title}</a>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
-                  </SidebarMenu>
-                </SidebarGroupContent>
-              </CollapsibleContent>
-            </SidebarGroup>
-          </Collapsible>
-        ))}
+        <div className="w-full flex flex-col  mx-auto max-w-[240px]">
+          {data.navMain.map((item) => {
+            //
+
+            return (
+              <SidebarCollapsible path={pathName} key={item.uid} item={item} />
+            );
+          })}
+        </div>
       </SidebarContent>
+
+      <SidebarFooter className="absolute bottom-[63px] w-full px-0">
+        <div className="w-full flex flex-col  mx-auto max-w-[240px]">
+          {FOOTER_DATA.map((item) => {
+            //
+
+            return (
+              <SidebarCollapsible path={pathName} key={item.uid} item={item} />
+            );
+          })}
+
+          {/*  */}
+          <LogOutButton />
+        </div>
+      </SidebarFooter>
+
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
