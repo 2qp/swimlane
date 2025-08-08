@@ -1,6 +1,37 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
+import { Slot } from "@radix-ui/react-slot";
+
+export type InputRootProps = React.ComponentProps<"div">;
+
+function InputRoot({ children, className, ...props }: InputRootProps) {
+  return (
+    <div className={cn("relative", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
+function InputIcon({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <Slot
+      role="presentation"
+      className={cn(
+        "absolute left-3 top-2 bottom-2 pointer-events-none size-5 [&~input]:pl-11",
+        className
+      )}
+    >
+      {children}
+    </Slot>
+  );
+}
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
@@ -15,7 +46,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Input }
+export { Input, InputIcon, InputRoot };
