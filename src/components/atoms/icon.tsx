@@ -19,6 +19,7 @@ const Icon: IconType = ({ id, alt, ...rest }) => {
       alt={alt}
       width="20"
       height="20"
+      className="size-[20px]"
       {...rest}
     />
   );
