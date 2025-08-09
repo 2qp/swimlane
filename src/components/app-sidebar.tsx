@@ -43,7 +43,7 @@ const data: AppSideBar = {
         {
           title: "Create routes",
           uid: "child-01",
-          url: "/create-routes",
+          url: "/board-main",
           enabled: false,
         },
         {
