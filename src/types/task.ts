@@ -18,6 +18,7 @@ type Metadata = {
 };
 
 type Task = {
+  uid: string;
   name: string;
   title: string;
 
