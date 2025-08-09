@@ -9,7 +9,7 @@
         "tasks": [
           {
             "uid": "task-001",
-            "name": "Setup CI/CD",
+            "label": "Setup CI/CD",
             "title": "Setup GitHub Actions for CI/CD",
             "color": "",
             "image": "",
@@ -45,7 +45,7 @@
           },
           {
             "uid": "task-002",
-            "name": "Research Auth",
+            "label": "Research Auth",
             "title": "Compare auth providers (Firebase vs Auth0)",
             "color": "",
             "image": "",
@@ -60,7 +60,7 @@
         "tasks": [
           {
             "uid": "task-003",
-            "name": "Implement Login",
+            "label": "Implement Login",
             "title": "OAuth login with Google and GitHub",
             "color": "",
             "image": "",
@@ -75,7 +75,7 @@
         "tasks": [
           {
             "uid": "task-004",
-            "name": "Design System",
+            "label": "Design System",
             "title": "Initial components ready for review",
             "color": "",
             "image": "",
@@ -90,7 +90,7 @@
         "tasks": [
           {
             "uid": "task-005",
-            "name": "Project Skeleton",
+            "label": "Project Skeleton",
             "title": "Created base project with routing",
             "color": "",
             "image": "",
@@ -99,7 +99,7 @@
           },
           {
             "uid": "task-006",
-            "name": "Lint + Prettier",
+            "label": "Lint + Prettier",
             "title": "Added code formatting rules",
             "color": "",
             "image": "",

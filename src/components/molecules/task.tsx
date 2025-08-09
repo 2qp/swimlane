@@ -18,7 +18,8 @@ type TaskType = (props: TaskProps) => JSX.Element;
 const Task: TaskType = ({ task, ref }) => {
   //
   return (
-    <div draggable
+    <div
+      draggable
       ref={ref}
       className="skew-x-0  max-h-[226px] bg-white w-full h-full rounded-[12px] px-[12px] py-[7px] flex flex-col "
     >
@@ -29,14 +30,14 @@ const Task: TaskType = ({ task, ref }) => {
         <div className="flex justify-between">
           <div className="gap-[8px] flex items-center ">
             <div className="w-[8px] h-[8px] bg-green-500 rounded-[2px] " />
-            <p className="text-custom-regular ">{"Design"}</p>
+            <p className="text-custom-regular ">{task.label}</p>
           </div>
 
           <TaskMenu />
         </div>
 
         <div className="space-y-[10px]">
-          <p className="text-custom-medium font-medium">{"User Interview"}</p>
+          <p className="text-custom-medium font-medium">{task.title}</p>
 
           <div className="flex gap-[6px]">
             <Avatars users={task?.users || []} />

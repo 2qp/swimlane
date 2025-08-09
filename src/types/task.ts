@@ -19,10 +19,11 @@ type Metadata = {
 
 type Task = {
   uid: string;
-  name: string;
   title: string;
 
+  label: string;
   color: string;
+
   image: string;
 
   due: string;
