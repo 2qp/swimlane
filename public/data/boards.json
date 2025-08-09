@@ -6,6 +6,9 @@
       {
         "uid": "lane-backlog",
         "title": "Backlog",
+        "badge": {
+          "color": "gray"
+        },
         "tasks": [
           {
             "uid": "task-001",
@@ -59,6 +62,9 @@
       {
         "uid": "lane-in-progress",
         "title": "In Progress",
+        "badge": {
+          "color": "task-yellow"
+        },
         "tasks": [
           {
             "uid": "task-003",
@@ -67,13 +73,22 @@
             "color": "",
             "image": "",
             "due": "2025-08-14",
-            "priority": "high"
+            "priority": "high",
+            "footerItems": ["metadata"],
+            "metadata": {
+              "type": "primary",
+              "icon": "bell",
+              "label": "Group Call"
+            }
           }
         ]
       },
       {
         "uid": "lane-review",
         "title": "Review",
+        "badge": {
+          "color": "task-lime-green"
+        },
         "tasks": [
           {
             "uid": "task-004",
@@ -82,13 +97,22 @@
             "color": "",
             "image": "",
             "due": "2025-08-13",
-            "priority": "low"
+            "priority": "low",
+            "footerItems": ["link", "remark", "metadata"],
+            "metadata": {
+              "type": "warning",
+              "icon": "info",
+              "label": "2 reports"
+            }
           }
         ]
       },
       {
         "uid": "lane-done",
         "title": "Done",
+        "badge": {
+          "color": "task-red"
+        },
         "tasks": [
           {
             "uid": "task-005",
