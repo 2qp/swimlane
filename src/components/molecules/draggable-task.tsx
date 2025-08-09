@@ -25,11 +25,10 @@ const DraggableTask: DraggableTaskType = ({ task, laneId }) => {
   });
 
   return (
-    <div
-      ref={ref}
-      className="bg-blue-100 text-blue-800 rounded-md p-3 shadow cursor-grab hover:bg-blue-200 transition"
-    >
-      <Task task={task} />
+    <div className="w-full px-[14px] flex justify-center ">
+      <div className="w-full shadow cursor-grab hover:shadow-2xl transition overflow-hidden rounded-[12px]">
+        <Task ref={ref} task={task} />
+      </div>
     </div>
   );
 };

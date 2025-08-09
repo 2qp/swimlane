@@ -13,7 +13,7 @@ const TaskImage: TaskImageType = ({ src }) => {
   //
   if (!src)
     return (
-      <div className="bg-neautral-3 w-[234px] h-[90px] rounded-[4px] items-center justify-center flex">
+      <div className="bg-neautral-3 h-[90px] rounded-[4px] items-center justify-center flex">
         <Icon id="img" className="size-[14px]" alt={""} />{" "}
       </div>
     );

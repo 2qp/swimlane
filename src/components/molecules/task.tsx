@@ -6,18 +6,22 @@ import { TaskImage } from "./task-image";
 import { TaskMenu } from "./task-menu";
 
 import type { Task as TaskItem } from "@/types/task";
-import type { JSX } from "react";
+import type { JSX, Ref } from "react";
 
 type TaskProps = {
   task: TaskItem;
+  ref?: Ref<HTMLDivElement>;
 };
 
 type TaskType = (props: TaskProps) => JSX.Element;
 
-const Task: TaskType = ({ task }) => {
+const Task: TaskType = ({ task, ref }) => {
   //
   return (
-    <div className="max-w-[260px] max-h-[226px] bg-white w-[260px] h-full rounded-[12px] px-[12px] py-[7px] flex flex-col ">
+    <div draggable
+      ref={ref}
+      className="skew-x-0  max-h-[226px] bg-white w-full h-full rounded-[12px] px-[12px] py-[7px] flex flex-col "
+    >
       {/*  */}
 
       <div className="flex-1">
