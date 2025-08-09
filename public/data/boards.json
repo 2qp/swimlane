@@ -11,7 +11,7 @@
             "uid": "task-001",
             "label": "Setup CI/CD",
             "title": "Setup GitHub Actions for CI/CD",
-            "color": "",
+            "color": "green",
             "image": "",
             "due": "2025-08-15",
             "priority": "high",
@@ -47,7 +47,7 @@
             "uid": "task-002",
             "label": "Research Auth",
             "title": "Compare auth providers (Firebase vs Auth0)",
-            "color": "",
+            "color": "yellow",
             "image": "",
             "due": "2025-08-18",
             "priority": "medium"

@@ -1,4 +1,5 @@
 import type { TaskFooterItem } from "@/components/molecules/task-footer";
+import type { ColorMap } from "@/constants/colors";
 import type { Priority } from "./priority";
 
 type Remark = {};
@@ -22,7 +23,7 @@ type Task = {
   title: string;
 
   label: string;
-  color: string;
+  color: ColorMap;
 
   image: string;
 

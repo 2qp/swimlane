@@ -1,3 +1,4 @@
+import { COLOR_MAP } from "@/constants/colors";
 import { Avatars } from "../atoms/avatars";
 import { Separator } from "../ui/separator";
 import { PriorityCard } from "./priority-card";
@@ -17,6 +18,11 @@ type TaskType = (props: TaskProps) => JSX.Element;
 
 const Task: TaskType = ({ task, ref }) => {
   //
+
+  const classes =
+    COLOR_MAP[(task.color as keyof typeof COLOR_MAP) || "default"] ||
+    COLOR_MAP["default"];
+
   return (
     <div
       draggable
@@ -29,7 +35,7 @@ const Task: TaskType = ({ task, ref }) => {
         {/*  */}
         <div className="flex justify-between">
           <div className="gap-[8px] flex items-center ">
-            <div className="w-[8px] h-[8px] bg-green-500 rounded-[2px] " />
+            <div className={`w-[8px] h-[8px] rounded-[2px] ${classes}`} />
             <p className="text-custom-regular ">{task.label}</p>
           </div>
 

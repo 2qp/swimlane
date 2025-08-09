@@ -10,12 +10,8 @@ type TaskFilterType = (params: TaskFilterParams) => Lane[];
 const taskFilter: TaskFilterType = ({ lanes, query }) => {
   //
 
-  console.log("runs", query);
-
   if (!lanes) return [];
   if (!query) return lanes;
-
-  console.log("runs");
 
   const result = lanes.map((lane) => ({
     ...lane,
