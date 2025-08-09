@@ -18,18 +18,43 @@ const useLaneDropTargets: UseLaneDropTargetsType = ({
 }) => {
   //
 
+  // useEffect(() => {
+  //   lanes.forEach((lane) => {
+  //     const element = containerRefs.current[lane.uid];
+  //     if (!element) return;
+
+  //     dropTargetForElements({
+  //       element,
+  //       getData: () => ({ laneId: lane.uid }),
+  //       canDrop: () => true,
+  //       onDrop: ({ source }) => {
+  //         const cardId = source?.data?.cardId + "";
+  //         const fromLaneId = source?.data?.laneId + "";
+  //         const toLaneId = lane.uid;
+
+  //         if (!cardId || !fromLaneId || fromLaneId === toLaneId) return;
+
+  //         onDropCard(fromLaneId, toLaneId, cardId);
+  //       },
+  //     });
+  //   });
+  // }, [lanes, containerRefs, onDropCard]);
+
   useEffect(() => {
+    //
+    const cleanups: Array<() => void> = [];
+
     lanes.forEach((lane) => {
       const element = containerRefs.current[lane.uid];
       if (!element) return;
 
-      dropTargetForElements({
+      const cleanup = dropTargetForElements({
         element,
         getData: () => ({ laneId: lane.uid }),
         canDrop: () => true,
         onDrop: ({ source }) => {
-          const cardId = source?.data?.cardId + "";
-          const fromLaneId = source?.data?.laneId + "";
+          const cardId = String(source?.data?.cardId);
+          const fromLaneId = String(source?.data?.laneId);
           const toLaneId = lane.uid;
 
           if (!cardId || !fromLaneId || fromLaneId === toLaneId) return;
@@ -37,7 +62,14 @@ const useLaneDropTargets: UseLaneDropTargetsType = ({
           onDropCard(fromLaneId, toLaneId, cardId);
         },
       });
+
+      cleanups.push(cleanup);
     });
+
+    //
+    return () => {
+      cleanups.forEach((fn) => fn());
+    };
   }, [lanes, containerRefs, onDropCard]);
 };
 
