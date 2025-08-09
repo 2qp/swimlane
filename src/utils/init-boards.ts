@@ -10,7 +10,7 @@ type InitBoardsType = (params: InitBoardsParams) => {
 };
 
 const initBoards: InitBoardsType = ({ boards }) => {
-  console.log("initBoards");
+  
   const boardMap = boards.reduce(
     (acc, board) => ({
       ...acc,
