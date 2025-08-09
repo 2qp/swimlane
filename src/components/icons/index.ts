@@ -1,3 +1,4 @@
+import { BellIcon } from "./bell";
 import { CalendarIcon } from "./calendar";
 import { FolderIcon } from "./folder";
 import { GridIcon } from "./grid";
@@ -14,6 +15,7 @@ const iconMap = {
   team: TeamIcon,
   info: InfoIcon,
   logout: LogOutIcon,
+  bell: BellIcon,
 } as const;
 
 type IconMap = keyof typeof iconMap;
