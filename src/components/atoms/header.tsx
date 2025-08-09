@@ -49,7 +49,7 @@ const Header: HeaderType = () => {
 
             <Button variant={"ghost"} size={"icon"} className="size-8">
               <CustomAvatar
-                src="https://github.com/shadcn.pngx"
+                src="https://github.com/shadcn.png"
                 type="header"
               />
             </Button>
