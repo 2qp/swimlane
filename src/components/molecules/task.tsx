@@ -21,7 +21,7 @@ const Task: TaskType = ({ task, ref }) => {
     <div
       draggable
       ref={ref}
-      className="skew-x-0  max-h-[226px] bg-white w-full h-full rounded-[12px] px-[12px] py-[7px] flex flex-col "
+      className="skew-x-0 gap-[14px]  h-fit bg-white w-full h-full rounded-[12px] px-[12px] py-[7px] flex flex-col "
     >
       {/*  */}
 
