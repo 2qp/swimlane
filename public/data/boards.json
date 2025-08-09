@@ -1,0 +1,113 @@
+[
+  {
+    "uid": "board-main",
+    "name": "Project X - Development",
+    "lanes": [
+      {
+        "uid": "lane-backlog",
+        "title": "Backlog",
+        "tasks": [
+          {
+            "uid": "task-001",
+            "name": "Setup CI/CD",
+            "title": "Setup GitHub Actions for CI/CD",
+            "color": "",
+            "image": "",
+            "due": "2025-08-15",
+            "priority": "high",
+            "users": [
+              {
+                "uid": "1",
+                "avatar": "https://www.w3schools.com/howto/img_avatar2.png",
+                "name": ""
+              },
+              {
+                "uid": "2",
+                "avatar": "https://www.w3schools.com/w3images/avatar2.png",
+                "name": ""
+              },
+              {
+                "uid": "3",
+                "avatar": "https://www.w3schools.com/howto/img_avatar.png",
+                "name": ""
+              },
+              {
+                "uid": "4",
+                "avatar": "https://www.w3schools.com/howto/img_avatar.png",
+                "name": ""
+              },
+              {
+                "uid": "5",
+                "avatar": "https://www.w3schools.com/howto/img_avatar.png",
+                "name": ""
+              }
+            ]
+          },
+          {
+            "uid": "task-002",
+            "name": "Research Auth",
+            "title": "Compare auth providers (Firebase vs Auth0)",
+            "color": "",
+            "image": "",
+            "due": "2025-08-18",
+            "priority": "medium"
+          }
+        ]
+      },
+      {
+        "uid": "lane-in-progress",
+        "title": "In Progress",
+        "tasks": [
+          {
+            "uid": "task-003",
+            "name": "Implement Login",
+            "title": "OAuth login with Google and GitHub",
+            "color": "",
+            "image": "",
+            "due": "2025-08-14",
+            "priority": "high"
+          }
+        ]
+      },
+      {
+        "uid": "lane-review",
+        "title": "Review",
+        "tasks": [
+          {
+            "uid": "task-004",
+            "name": "Design System",
+            "title": "Initial components ready for review",
+            "color": "",
+            "image": "",
+            "due": "2025-08-13",
+            "priority": "low"
+          }
+        ]
+      },
+      {
+        "uid": "lane-done",
+        "title": "Done",
+        "tasks": [
+          {
+            "uid": "task-005",
+            "name": "Project Skeleton",
+            "title": "Created base project with routing",
+            "color": "",
+            "image": "",
+            "due": "2025-08-10",
+            "priority": "low"
+          },
+          {
+            "uid": "task-006",
+            "name": "Lint + Prettier",
+            "title": "Added code formatting rules",
+            "color": "",
+            "image": "",
+            "due": "2025-08-11",
+            "priority": "low"
+          }
+        ]
+      }
+    ]
+  }
+]
