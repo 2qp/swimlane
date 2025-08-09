@@ -36,7 +36,7 @@ const Task: TaskType = ({ task, ref }) => {
         <div className="flex justify-between">
           <div className="gap-[8px] flex items-center ">
             <div className={`w-[8px] h-[8px] rounded-[2px] ${classes}`} />
-            <p className="text-custom-regular ">{task.label}</p>
+            <p className="text-custom-label text-neutral-5">{task.label}</p>
           </div>
 
           <TaskMenu />
