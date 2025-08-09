@@ -11,10 +11,12 @@ type BoardHeaderProps = {
   board?: Board;
 };
 
-type BoardHeaderType = (props: BoardHeaderProps) => JSX.Element;
+type BoardHeaderType = (props: BoardHeaderProps) => JSX.Element | null;
 
 const BoardHeader: BoardHeaderType = ({ board }) => {
   //
+
+  if (!board) return null;
 
   return (
     <div className="p-[24px] space-y-[26px]">

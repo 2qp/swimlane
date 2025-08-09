@@ -10,13 +10,13 @@ export default async function Page({
   const { uid } = await params;
 
   //
-  const data = await fetchBoard({ uid: "board-main" });
+  const data = await fetchBoard({ uid });
 
   //
   return (
     <div>
       <BoardHeader board={data} />
-      <LaneStage board={data} query="" uid={uid} />;
+      <LaneStage board={data} query="" uid={uid} />
     </div>
   );
 }
