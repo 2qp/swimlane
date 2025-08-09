@@ -14,7 +14,7 @@ type User = {
 
 type Metadata = {
   type: "primary" | "warning";
-  icon: "notify" | "warn";
+  icon: "bell" | "info";
   label?: string;
 };
 

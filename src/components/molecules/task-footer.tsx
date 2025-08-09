@@ -1,16 +1,19 @@
 import { TaskFooterButton } from "../atoms/task-footer-button";
+import { MetadataButton } from "./metadata-button";
 
+import type { Task } from "@/types/task";
 import type { JSX } from "react";
 
 type TaskFooterItem = "link" | "remark" | "due" | "metadata";
 
 type TaskFooterProps = {
   items?: TaskFooterItem[];
+  task: Task;
 };
 
 type TaskFooterType = (props: TaskFooterProps) => JSX.Element;
 
-const TaskFooter: TaskFooterType = ({ items = ["link"] }) => {
+const TaskFooter: TaskFooterType = ({ items = ["link"], task }) => {
   //
 
   const renderItem = (item: TaskFooterItem) => {
@@ -40,6 +43,17 @@ const TaskFooter: TaskFooterType = ({ items = ["link"] }) => {
             button={{ variant: "link" }}
             icon={{ alt: "", id: "due" }}
             label="Due: Tomorrow"
+          />
+        );
+
+      case "metadata":
+        if (!task.metadata?.icon) return;
+        return (
+          <MetadataButton
+            key={"meta"}
+            icon={task.metadata?.icon}
+            type={task.metadata.type}
+            label={task.metadata.label}
           />
         );
       // You can add more cases here for other TaskFooterItem types

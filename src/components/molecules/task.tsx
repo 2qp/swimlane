@@ -61,7 +61,7 @@ const Task: TaskType = ({ task, ref }) => {
       {/* FOOTER */}
       <div>
         <Separator />
-        <TaskFooter items={task.footerItems} />
+        <TaskFooter task={task} items={task.footerItems} />
       </div>
     </div>
   );
