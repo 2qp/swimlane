@@ -1,6 +1,11 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { AppSidebar } from "@/components/app-sidebar";
+import { Header } from "@/components/atoms/header";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+
+import type { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +15,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,10 +37,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.className} antialiased flex flex-col min-h-screen overflow-hidden`}
       >
-        {children}
+        <Header />
+        <SidebarProvider className="flex flex-1 overflow-hidden">
+          <AppSidebar className="top-[64px]  fixed left-0 " />
+          <SidebarInset className="flex-1 overflow-auto">
+            <ScrollArea className="h-full rounded-md">{children}</ScrollArea>
+          </SidebarInset>
+        </SidebarProvider>
       </body>
     </html>
   );
 }
+
+// h-[calc(100vh-64px)]
