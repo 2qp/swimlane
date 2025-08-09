@@ -25,7 +25,7 @@ type Task = {
   label: string;
   color: ColorMap;
 
-  image: string;
+  image?: string;
 
   due: string;
 
