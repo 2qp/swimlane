@@ -40,7 +40,7 @@ const QuerySearchBar: QuerySearchBarType = ({ mode }) => {
   });
 
   const onSubmit = (values: z.infer<typeof FormSchema>) =>
-    setQuery({ ...values, page: "1" });
+    setQuery({ ...values });
 
   // AUTO
   const watchedData = useWatch({
@@ -58,8 +58,6 @@ const QuerySearchBar: QuerySearchBarType = ({ mode }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watchedData]);
-
-  console.log("heavy");
 
   return (
     <Form {...form}>
