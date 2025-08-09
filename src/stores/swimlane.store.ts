@@ -89,7 +89,7 @@ const useLaneStore = create<SwimlaneStore>()(
             ...lane,
             tasks: lane.tasks.filter(
               (task) =>
-                task.name.toLowerCase().includes(query) ||
+                task.label.toLowerCase().includes(query) ||
                 task.title.toLowerCase().includes(query)
             ),
           })),

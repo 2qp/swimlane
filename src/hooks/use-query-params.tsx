@@ -5,7 +5,7 @@ type ParamRecord = {
   search?: string;
 };
 
-type SetQueryParamsProps = { [key: string]: any } & ParamRecord;
+type SetQueryParamsProps = { [key: string]: string } & ParamRecord;
 type SetQueryParamsType = (props: SetQueryParamsProps) => void;
 
 type UseQueryParamsProps = {};

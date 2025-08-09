@@ -3,6 +3,7 @@ import { Header } from "@/components/atoms/header";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 
 import type { Metadata } from "next";
@@ -40,10 +41,13 @@ export default function RootLayout({
         className={`${poppins.className} antialiased flex flex-col min-h-screen overflow-hidden`}
       >
         <Header />
+
         <SidebarProvider className="flex flex-1 overflow-hidden">
           <AppSidebar className="top-[64px]  fixed left-0 " />
           <SidebarInset className="flex-1 overflow-auto">
-            <ScrollArea className="h-full rounded-md">{children}</ScrollArea>
+            <ScrollArea className="h-full rounded-md">
+              <Suspense>{children}</Suspense>
+            </ScrollArea>
           </SidebarInset>
         </SidebarProvider>
       </body>

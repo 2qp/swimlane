@@ -4,6 +4,8 @@ import { CustomAvatar } from "@/components/molecules/custom-avatar";
 import { QuerySearchBar } from "@/components/molecules/search-bar";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import { Suspense } from "react";
+import { SkeletonLoader } from "./skeleton";
 
 import type { JSX } from "react";
 
@@ -33,7 +35,9 @@ const Header: HeaderType = () => {
 
         <div className="flex items-center gap-[12px] md:gap-[48px]">
           {/* SEARCH */}
-          <QuerySearchBar />
+          <Suspense fallback={<SkeletonLoader />}>
+            <QuerySearchBar />
+          </Suspense>
 
           {/*  */}
           <div className="flex gap-[14px] items-center">
@@ -48,10 +52,7 @@ const Header: HeaderType = () => {
             </Button>
 
             <Button variant={"ghost"} size={"icon"} className="size-8">
-              <CustomAvatar
-                src="https://github.com/shadcn.png"
-                type="header"
-              />
+              <CustomAvatar src="https://github.com/shadcn.png" type="header" />
             </Button>
           </div>
         </div>
