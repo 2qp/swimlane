@@ -1,21 +1,15 @@
-import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { fetchBoard } from "@/features/lanes/api";
 
-export default function Page() {
-  return (
-    <SidebarProvider>
-      <AppSidebar className="top-[63px]" />
-      <SidebarInset>
-        <header className="bg-background sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b px-4"></header>
-        <div className="flex flex-1 flex-col gap-4 p-4">
-          {Array.from({ length: 24 }).map((_, index) => (
-            <div
-              key={index}
-              className="bg-muted/50 aspect-video h-12 w-full rounded-lg"
-            />
-          ))}
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
-  );
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ uid: string }>;
+}) {
+  const { uid } = await params;
+
+  //
+  const data = await fetchBoard({ uid: "board-main" });
+
+  //
+  return <></>;
 }
