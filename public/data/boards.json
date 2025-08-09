@@ -15,6 +15,7 @@
             "image": "",
             "due": "2025-08-15",
             "priority": "high",
+            "footerItems": ["link", "remark", "due"],
             "users": [
               {
                 "uid": "1",
@@ -50,7 +51,8 @@
             "color": "yellow",
             "image": "",
             "due": "2025-08-18",
-            "priority": "medium"
+            "priority": "medium",
+            "footerItems": ["remark", "due"]
           }
         ]
       },
