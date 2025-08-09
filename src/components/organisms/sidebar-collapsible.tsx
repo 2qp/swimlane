@@ -20,6 +20,7 @@ import { IconPipe } from "../icons/icon-pipe";
 import { Button } from "../ui/button";
 
 import type { IconMap } from "../icons";
+import { Badge } from "../atoms/badge";
 
 type SidebarItem = {
   uid: string;
@@ -27,6 +28,8 @@ type SidebarItem = {
   enabled?: boolean;
   url: string;
   icon?: IconMap | (string & {});
+
+  count?: string;
 
   type: "expandable" | "default";
 
@@ -68,7 +71,7 @@ const SidebarCollapsible: SidebarCollapsibleType = ({ item, path }) => {
           >
             <Link
               href={item.url || ""}
-              className="space-x-[20px] flex items-center "
+              className="space-x-[20px] flex items-center justify-between"
             >
               <div className="flex items-center space-x-[20px]">
                 <IconPipe
@@ -77,6 +80,13 @@ const SidebarCollapsible: SidebarCollapsibleType = ({ item, path }) => {
                 />
                 <span>{item.title}</span>
               </div>
+              {item?.count && (
+                <Badge
+                  label="3"
+                  color="menu-orange"
+                  className="h-5 min-w-5 rounded-full px-1 font-mono tabular-nums"
+                />
+              )}
             </Link>
           </SidebarGroupLabel>
         )}

@@ -64,6 +64,7 @@ const data: AppSideBar = {
       url: "/messages",
       type: "default",
       icon: "remark",
+      count: "3",
     },
     {
       title: "Calendar",
