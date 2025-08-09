@@ -5,8 +5,8 @@ const COLOR_MAP = {
   yellow: "bg-yellow-400 text-black",
   gray: "bg-neutral-6",
   "task-lime-green": "bg-task-lime-green text-black",
-  "task-yellow": "bg-task-yellow text-black",
-  "task-red": "bg-task-red text-black",
+  "task-yellow": "bg-task-yellow text-neautral-3",
+  "task-red": "bg-task-red text-white",
   // fallback
   default: "bg-gray-300 text-black",
 } as const;

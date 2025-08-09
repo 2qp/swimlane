@@ -128,6 +128,9 @@
   --text-custom-secondary: clamp(0.875rem, 0.875rem + 0vw, 0.875rem);
 
   --text-custom-main: clamp(0.9375rem, 0.9223rem + 0.0647vw, 1rem);
+  --text-custom-board-title: clamp(1rem, 0.8786rem + 0.5178vw, 1.5rem);
+
+  --text-custom-label: clamp(0.75rem, 0.75rem + 0vw, 0.75rem);
 
   --color-neutral-4: #777e90;
   --color-neautral-3: #353945;

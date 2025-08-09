@@ -2,6 +2,39 @@
   {
     "uid": "board-main",
     "name": "Project X - Development",
+    "label": "event production",
+    "updated": "04 April, 2022",
+    "status": "In progress",
+    "badge": {
+      
+    },
+    "users": [
+      {
+        "uid": "1",
+        "avatar": "",
+        "name": ""
+      },
+      {
+        "uid": "2",
+        "avatar": "",
+        "name": ""
+      },
+      {
+        "uid": "3",
+        "avatar": "",
+        "name": ""
+      },
+      {
+        "uid": "4",
+        "avatar": "",
+        "name": ""
+      },
+      {
+        "uid": "5",
+        "avatar": "",
+        "name": ""
+      }
+    ],
     "lanes": [
       {
         "uid": "lane-backlog",
@@ -9,6 +42,7 @@
         "badge": {
           "color": "gray"
         },
+
         "tasks": [
           {
             "uid": "task-001",
