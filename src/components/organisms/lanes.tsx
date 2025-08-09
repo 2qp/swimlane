@@ -67,7 +67,7 @@ const Lanes: LanesType = ({ lanes: rawLanes, uid }) => {
           ref={(el) => {
             containerRefs.current[lane.uid] = el;
           }}
-          className="bg-gray-100 flex flex-col gap-3  overflow-auto border-r border-neutral-6"
+          className="bg-gray-100 flex flex-col gap-3  overflow-auto border-r border-t border-neutral-6"
         >
           <LaneComponent lane={lane} />
         </div>
