@@ -1,10 +1,10 @@
 import { iconMap } from ".";
 
 import type { JSX } from "react";
-import type { IconMap } from ".";
+import type { IconName } from ".";
 
 type IconPipeProps = {
-  iconName: IconMap | (string & {});
+  iconName: IconName | (string & {});
   color: string;
 };
 
