@@ -8,13 +8,15 @@ import type { Board } from "@/types/board";
 import type { JSX } from "react";
 
 type BoardHeaderProps = {
-  board?: Board;
+  board?: Promise<Board | undefined>;
 };
 
-type BoardHeaderType = (props: BoardHeaderProps) => JSX.Element | null;
+type BoardHeaderType = (props: BoardHeaderProps) => Promise<JSX.Element | null>;
 
-const BoardHeader: BoardHeaderType = ({ board }) => {
+const BoardHeader: BoardHeaderType = async ({ board: promisedBoard }) => {
   //
+
+  const board = await promisedBoard;
 
   if (!board) return null;
 
